@@ -1,14 +1,17 @@
 import multer from "multer";
 import path from "path";
 import fs from "fs";
+import os from "os";
 
-// ایجاد پوشه آپلود اگر وجود ندارد
-const uploadDir = "uploads/contracts";
+// روی Vercel فقط پوشه‌ی /tmp قابل نوشتنه، بقیه‌ی دیسک read-only هست
+const uploadDir = process.env.VERCEL
+  ? path.join(os.tmpdir(), "contracts")
+  : "uploads/contracts";
+
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
 
-// تنظیمات ذخیره فایل
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, uploadDir);
@@ -20,7 +23,6 @@ const storage = multer.diskStorage({
   }
 });
 
-// فیلتر برای قبول فقط PDF و تصاویر
 const fileFilter = (req, file, cb) => {
   const allowedTypes = [
     "application/pdf",
@@ -29,7 +31,6 @@ const fileFilter = (req, file, cb) => {
     "image/png",
     "image/webp"
   ];
-  
   if (allowedTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
@@ -41,7 +42,7 @@ const upload = multer({
   storage: storage,
   fileFilter: fileFilter,
   limits: {
-    fileSize: 5 * 1024 * 1024 // 5MB
+    fileSize: 5 * 1024 * 1024
   }
 });
 
