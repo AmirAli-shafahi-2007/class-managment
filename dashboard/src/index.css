@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+/* متغیرهای تم - پیش‌فرض تیره */
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-glass {
+  --bg-primary: rgba(15, 23, 42, 0.8);
+  --bg-secondary: rgba(30, 41, 59, 0.6);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.15);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+/* index.css - اضافه کن به انتهای فایل */
+
+/* استایل‌های سراسری برای همه صفحات */
+.bg-primary {
+  background-color: var(--bg-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary) !important;
+}
+
+.text-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.border-primary {
+  border-color: var(--border-color) !important;
+}
+
+/* استایل برای glass-card سراسری */
+.glass-card-global {
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(20px);
+}
+
+/* استایل برای stat-card سراسری */
+.stat-card-global {
+  background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.1));
+  border: 1px solid var(--border-color);
+}
+
+/* اطمینان از اعمال تم به body */
+body.theme-dark,
+body.theme-light,
+body.theme-glass {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* فونت محلی Vazirmatn */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/Vazirmatn-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/Vazirmatn-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* و بقیه وزن‌ها... */
+
+/* index.css */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx@0.1.0/fonts.css');
+
+* {
+  font-family: 'IRANSansX', 'IRANSans', 'Tahoma', 'Vazir', sans-serif !important;
+}
+
+body {
+  font-family: 'IRANSansX', 'IRANSans', 'Tahoma', 'Vazir', sans-serif;
+  font-weight: 400;
+}
+
+/* در index.css به عنوان fallback نهایی */
+:root {
+  font-family: 'Vazirmatn', 'IRANSansX', 'IRANSans', 'Tahoma', 'Segoe UI', 'Vazir', sans-serif;
+}
+/* استایل‌های مخصوص PDF */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .glass-card {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+  }
+  
+  .text-white {
+    color: #1e293b !important;
+  }
+  
+  .bg-white\/5 {
+    background: #f8fafc !important;
+  }
+  
+  .border-white\/10 {
+    border-color: #e2e8f0 !important;
+  }
+}
+/* برای رفع مشکل oklab در PDF */
+@media print {
+  .bg-gradient-to-r, .bg-gradient-to-br, .bg-gradient-to-tl,
+  .from-purple-500, .to-pink-500, .from-blue-500, .to-indigo-500,
+  .from-green-500, .to-emerald-500, .from-yellow-500, .to-orange-500 {
+    background: #1e293b !important;
+  }
+  
+  .glass-card, .stat-card, .contract-card, .finance-card, .class-card {
+    background: #1e293b !important;
+    border: 1px solid #334155 !important;
+    box-shadow: none !important;
+  }
+  
+  .text-white {
+    color: #ffffff !important;
+  }
+  
+  .text-gray-400, .text-gray-500 {
+    color: #9ca3af !important;
+  }
+}

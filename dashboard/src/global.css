@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* برای مخفی کردن هدر PDF در نمایش عادی */
+.pdf-header {
+  display: none;
+}
+
+/* برای نمایش هدر در PDF */
+@media print {
+  .pdf-header {
+    display: block !important;
+  }
+}

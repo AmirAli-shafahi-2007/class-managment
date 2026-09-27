@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #030712; /* gray-950 */
+  font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
+  direction: rtl;
+}
+
+.glass-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(20px);
+}
+
+/* اسکرول بار کلی */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.03);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.10);
+  border-radius: 3px;
+}
+
+/* themes.css یا index.css */
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-glass {
+  --bg-primary: rgba(15, 23, 42, 0.8);
+  --bg-secondary: rgba(30, 41, 59, 0.6);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.15);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+/* index.css */
+
+/* وارد کردن فونت Vazirmatn از CDN */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* یا استفاده از فونت IRANSansX (جایگزین) - اگر خواستی */
+/* @import url('https://fonts.googleapis.com/css2?family=IRANSansX&display=swap'); */
+
+/* تنظیم فونت پیش‌فرض برای کل سایت */
+* {
+  font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', 'Vazir', sans-serif !important;
+}
+
+/* تنظیم فونت برای اعداد انگلیسی */
+.latin-numbers {
+  font-family: 'Vazirmatn', monospace;
+}
+
+/* بهبود خوانایی */
+body {
+  font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', 'Vazir', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* فونت‌های خاص برای عناصر مختلف */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+input, textarea, select, button {
+  font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', sans-serif;
+}
+
+/* فونت اعداد در مبالغ و تاریخ */
+.amount, .date, .number {
+  font-feature-settings: "kern" 1, "tnum" 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+}
+

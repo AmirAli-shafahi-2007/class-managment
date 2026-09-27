@@ -1,0 +1,70 @@
+@import "tailwindcss";
+/* ===== فونت ===== */
+@font-face { font-family: 'Vazirmatn'; src: url('/fonts/Vazirmatn-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Vazirmatn'; src: url('/fonts/Vazirmatn-Medium.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Vazirmatn'; src: url('/fonts/Vazirmatn-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Vazirmatn'; src: url('/fonts/Vazirmatn-ExtraBold.woff2') format('woff2'); font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Vazirmatn'; src: url('/fonts/Vazirmatn-Black.woff2') format('woff2'); font-weight: 900; font-display: swap; }
+
+/* ===== Theme Variables ===== */
+:root, [data-theme="dark"] {
+  --bg-primary: #030712;
+  --bg-secondary: #0f172a;
+  --bg-card: linear-gradient(160deg, rgba(20, 15, 50, 0.7), rgba(10, 8, 22, 0.8));
+  --bg-card-solid: rgba(20, 15, 50, 0.7);
+  --text-primary: #fff;
+  --text-secondary: #94a3b8;
+  --text-muted: #6b7280;
+  --border: rgba(255, 255, 255, 0.05);
+  --border-hover: rgba(139, 92, 246, 0.25);
+  --input-bg: rgba(15, 20, 40, 0.6);
+  --section-bg: #030712;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.95));
+  --bg-card-solid: rgba(255, 255, 255, 0.9);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(139, 92, 246, 0.4);
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --section-bg: #f8fafc;
+}
+
+/* ===== Reset ===== */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #4f46e5, #7c3aed, #ec4899); border-radius: 10px; }
+::selection { background: rgba(139, 92, 246, 0.3); color: #fff; }
+
+/* ===== Utility Classes ===== */
+@keyframes gradientFlow { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.gradient-text {
+  background: linear-gradient(135deg, #a78bfa, #c084fc, #f9a8d4);
+  background-size: 300% 300%;
+  animation: gradientFlow 3s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
